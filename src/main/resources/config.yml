@@ -1,0 +1,67 @@
+# ============================================
+#               GhostSpear config
+#  After editing, run /ghostspear reload
+#  Times are in ticks (20 ticks = 1 second)
+# ============================================
+
+item:
+  # The item the Ghost Spear is made from. NETHERITE_SPEAR is the 1.21.11 spear.
+  material: NETHERITE_SPEAR
+  # Used if the material above doesn't exist on your server version.
+  fallback-material: TRIDENT
+  # Text uses MiniMessage format: https://docs.advntr.dev/minimessage/format
+  name: "<gradient:#c9f6ff:#7b86ff><bold>Ghost Spear</bold></gradient>"
+  lore:
+    - "<gray>Swing: <white>Phantom Dash</white>"
+    - "<gray>Hold right-click right after a dash: <aqua>Soul Pierce</aqua>"
+    - ""
+    - "<dark_gray>Leaves a ghost of you behind..."
+  unbreakable: true
+  glint: true
+
+dash:
+  # true = you must be sneaking when you swing to dash
+  require-sneak: false
+  # How hard you get launched forward
+  strength: 2.2
+  # A little upward lift so you don't scrape the ground
+  vertical-boost: 0.25
+  # Caps how much the dash can throw you up or down
+  max-vertical: 0.9
+  # Time between dashes
+  cooldown-ticks: 30
+  # No fall damage for this long after dashing
+  no-fall-damage-ticks: 60
+
+ghost:
+  enabled: true
+  # How long each ghost afterimage stays
+  lifetime-ticks: 14
+  # Extra ghosts left along the dash path (0 = only the one where you started)
+  trail-count: 3
+  # Ticks between each trail ghost
+  trail-interval-ticks: 2
+  # Give the ghosts a glowing outline
+  glowing: true
+
+charge:
+  # true  = Soul Pierce only works during the boost window after a dash (like the video)
+  # false = any charged spear hit one-taps (very OP)
+  require-dash: true
+  # How long after a dash your charge hit counts as a Soul Pierce
+  boost-window-ticks: 40
+  # Damage dealt by a Soul Pierce. 1000 kills through full netherite (totems still save).
+  damage: 1000.0
+  # How far in front of you the pierce reaches (blocks)
+  reach: 3.5
+  # How wide the hit check is (bigger = easier to land)
+  hitbox-size: 0.6
+  hit-players: true
+  hit-mobs: true
+  # true = one pierce per dash
+  consume-boost-on-hit: true
+
+messages:
+  dash-cooldown: "<gray>Phantom Dash ready in <white><seconds>s</white>"
+  dash-used: "<aqua>Phantom Dash!</aqua> <gray>Hold right-click to <white>Soul Pierce</white>"
+  pierce: "<dark_aqua>Soul Pierce!</dark_aqua>"
